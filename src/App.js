@@ -1,11 +1,11 @@
-
-
-function App() {
+import React from 'react'
+import NoteSpace from "./NoteSpace"
+const App = () => {
   return (
-    <div className="App">
-     
+    <div>
+      <NoteSpace/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

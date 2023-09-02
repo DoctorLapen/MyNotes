@@ -1,0 +1,7 @@
+.createNote{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
