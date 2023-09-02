@@ -36,18 +36,25 @@ console.log(savedNotes);
     setNotes([newNote,...notes]);
   }
   const editNote = (newNote)=>{
-    let noteIndex = notes.findIndex((element)=> element.id ==newNote.id);
-    notes[noteIndex] = newNote;
-    setNotes(notes);
+    let newNotes = [...notes];
+    let noteIndex = newNotes.findIndex((element)=> element.id ==newNote.id);
+    console.log(`noteIndex ${noteIndex}`);
+    newNotes[noteIndex] = newNote;
+    setNotes(newNotes);
   }
+  const deleteNote = (id)=>{
+    let newNotes = notes.filter((note)=> note.id != id);
+    setNotes(newNotes);
+  }
+   
   console.log(notes);
   return (
     <div>
     <CreateNote addNote={addNote}/>
     <div className='noteSpace'> 
     {
-     
-      notes.map((note)=><Note text={note.text}  title={note.title} />)
+    
+      notes.map((note)=><Note data= {note} edit = {editNote} deleteNote ={deleteNote}/>)
      }
     </div>
     </div>
