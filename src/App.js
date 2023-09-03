@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import "./NoteSpace.css"
 import CreateNote from './CreateNote';
 import Header from './Header';
+
 const App = () => {
   const [isFirstRender,SetFirstRender] = useState(true);
   const [notes,setNotes] = useState([]);

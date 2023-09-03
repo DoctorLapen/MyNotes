@@ -1,8 +1,11 @@
 
 import "./Note.css"
+import DeleteButton from "./DeleteButton.js";
+import { useState } from "react";
 const Note = (props) => {
     
     const{data,edit,deleteNote} = props;
+    const[isPointerOver,setPointerOver] = useState(false);
     
     const editValue = (event)=>
     {
@@ -11,10 +14,12 @@ const Note = (props) => {
     }
         
   return (
-    <div className="note" style={{backgroundColor: data.color}}>
-    <h4><input placeholder="" name="title" value={data.title} onChange={editValue}></input></h4>
-    <textarea placeholder="" name="text" value={data.text} onChange={editValue}></textarea> 
-    <button onClick={(e)=> deleteNote(data.id)}>delete</button>
+    <div className="note" style={{backgroundColor: data.color}}  onMouseEnter={(e)=> setPointerOver(true)} onMouseLeave={(e)=> setPointerOver(false)}>
+      <div className="title">
+      <input placeholder="" name="title" value={data.title} onChange={editValue}></input>
+      {isPointerOver && <DeleteButton onClick={(e)=> deleteNote(data.id)}/>}
+      </div>
+    <textarea placeholder="" name="text" value={data.text} onChange={editValue}></textarea>     
     </div>
   )
 }
