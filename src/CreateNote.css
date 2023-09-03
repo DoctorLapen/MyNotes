@@ -6,3 +6,18 @@
     flex-direction: column;
     margin-bottom: 10px;
 }
+.createNote .controls button{
+    background-color: #e1e1e1;
+   
+	border: none;
+	border-radius: 15px;
+}
+.createNote button:hover {
+	background-color: #ededed;
+	cursor: pointer;
+}
+.createNote .controls{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

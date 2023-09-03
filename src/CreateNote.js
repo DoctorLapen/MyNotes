@@ -22,8 +22,10 @@ const CreateNote = ({addNote}) => {
         <div className="note createNote" style={{backgroundColor: data.color}}>
         <h4><input placeholder="Note title..." name="title" value={data.title} onChange={updateData}></input></h4>
         <textarea placeholder="Enter your note text here" name="text"value={data.text} onChange={updateData}></textarea>
+        <div className='controls'>
         <ColorSelector selectColor={updateData}/>
-         <button onClick={save}>createNote</button> 
+         <button onClick={save}>create</button> 
+         </div>
         </div>
       )
     
