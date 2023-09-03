@@ -2,6 +2,7 @@
 import "./Note.css"
 import DeleteButton from "./DeleteButton.js";
 import { useState } from "react";
+import ColorSelector from "./ColorSelector";
 const Note = (props) => {
     
     const{data,edit,deleteNote} = props;
@@ -19,7 +20,8 @@ const Note = (props) => {
       <input placeholder="" name="title" value={data.title} onChange={editValue}></input>
       {isPointerOver && <DeleteButton onClick={(e)=> deleteNote(data.id)}/>}
       </div>
-    <textarea placeholder="" name="text" value={data.text} onChange={editValue}></textarea>     
+    <textarea placeholder="" name="text" value={data.text} onChange={editValue}></textarea>
+    {isPointerOver && <ColorSelector selectColor={editValue}/> }
     </div>
   )
 }
