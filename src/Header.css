@@ -1,0 +1,9 @@
+.header{
+    display:flex;
+    flex-direction: row;
+    gap: 50px;
+    
+}
+.header h1 {
+    margin:0;
+}

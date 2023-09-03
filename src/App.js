@@ -3,9 +3,11 @@ import NoteSpace from "./NoteSpace"
 import { useEffect, useState } from 'react'
 import "./NoteSpace.css"
 import CreateNote from './CreateNote';
+import Header from './Header';
 const App = () => {
   const [isFirstRender,SetFirstRender] = useState(true);
   const [notes,setNotes] = useState([]);
+  const [searchText, setSearchText] = useState('');
   useEffect(() => {
    
   
@@ -47,13 +49,24 @@ const App = () => {
     let newNotes = notes.filter((note)=> note.id != id);
     setNotes(newNotes);
   }
+  const search =()=>
+  {
+    
+    return notes.filter((note) =>
+    note.text.toLowerCase().includes(searchText.toLowerCase()) 
+    ||  note.title.toLowerCase().includes(searchText.toLowerCase()) )
+  }
+  
    
  
   return (
+    <div>
+    <Header search={setSearchText}/>
     <main>
       <CreateNote addNote={addNote}/>
-      <NoteSpace notes={notes} editNote={editNote} deleteNote={deleteNote}/>
+      <NoteSpace notes={search()} editNote={editNote} deleteNote={deleteNote}/>
     </main>
+    </div>
   )
 }
 
