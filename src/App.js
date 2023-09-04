@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import "./NoteSpace.css"
 import CreateNote from './CreateNote';
 import Header from './Header';
+import "./App.css"
 
 const App = () => {
   const [isFirstRender,SetFirstRender] = useState(true);
@@ -61,7 +62,7 @@ const App = () => {
    
  
   return (
-    <div>
+    <div className="app">
     <Header search={setSearchText}/>
     <main>
       <CreateNote addNote={addNote}/>
